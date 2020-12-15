@@ -1,11 +1,54 @@
+body {
+    width: 100%;
+    background-color: black;
+    align-items: center;
+    justify-content: center;
+}
+
 h1 {
     text-align: center;
+    color: white;
 }
 
 .botoes{
     text-align: center;
 }
 
+input {
+    position: relative;
+    margin-left: 3%;
+    border: solid 2px white;
+    animation: flutuando .4s ease-in-out 1s infinite alternate;
+    
+}
+
+
+@keyframes flutuando {
+    from { top: 0;}
+
+    to { top: -10px}
+}
+
+#rock {
+    padding-top: 3.5%;
+}
 #count, #result {
+    font-size: 20px;
     text-align: center;
+    color: white;
+    font-family: 'Special Elite', monospace;
+    margin: 0 auto;
+    white-space: nowrap;
+    animation: typing 5s steps(80) 0s normal both;
+    overflow: hidden;
+}
+
+@keyframes typing {
+    from {
+        width: 0%;
+    }
+
+    to {
+        width: 100%;
+    }
 }
