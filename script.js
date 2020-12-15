@@ -19,38 +19,45 @@ botoesEl.forEach(botaoSelecionado =>{
         let getResult = " ";
         let resultGame = playRound(botaoSelecionado.value);
 
-        if (resultGame[0] === "I"){
-            document.getElementById('result').innerHTML = resultGame;
-            wonCountPc++;
-            wonCountPlayer++;
-        }
-          
-        else if (resultGame[4] === "W"){
-            wonCountPlayer++;
-            document.getElementById('result').innerHTML = resultGame;
-        }
-         
 
-        else {
-            document.getElementById('result').innerHTML = resultGame;
-            wonCountPc++;
-        }
-         
-
-         if (wonCountPc === 5){
+        if (wonCountPc === 5){
             getResult = "You lost de game!! Refresh the page to play one more time";
             disableButtons();
             document.getElementById('result').innerHTML = getResult;
          }
         
-         if (wonCountPlayer == 5){
+        else if (wonCountPlayer === 5){
             getResult = "You won the game!! Refresh the page to play one more time";
             disableButtons();
 
-            document.getElementById('#result').innerHTML = getResult;
-         }
+            document.getElementById('result').innerHTML = getResult;
+        }
 
-         document.getElementById('count').innerHTML = "Computer Score: " + wonCountPc + "<br>Your Score: " + wonCountPlayer;
+        else{
+                    if (resultGame[0] === "I"){
+                        document.getElementById('result').innerHTML = resultGame;
+                        wonCountPc++;
+                        wonCountPlayer++;
+                        document.getElementById('count').innerHTML = "Computer Score: " + wonCountPc + "<br>Your Score: " + wonCountPlayer;
+                    }
+                    
+                    else if (resultGame[4] === "W"){
+                        wonCountPlayer++;
+                        document.getElementById('result').innerHTML = resultGame;
+                        document.getElementById('count').innerHTML = "Computer Score: " + wonCountPc + "<br>Your Score: " + wonCountPlayer;
+                    }
+                    
+
+                    else {
+                        document.getElementById('result').innerHTML = resultGame;
+                        wonCountPc++;
+                        document.getElementById('count').innerHTML = "Computer Score: " + wonCountPc + "<br>Your Score: " + wonCountPlayer;
+                    }
+                    
+                }
+         
+
+         
     });
 })
 
