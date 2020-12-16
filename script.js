@@ -23,35 +23,35 @@ botoesEl.forEach(botaoSelecionado =>{
         if (wonCountPc === 5){
             getResult = "You lost de game!! Refresh the page to play one more time";
             disableButtons();
-            document.getElementById('result').innerHTML = getResult;
+            document.getElementById('result').innerText = getResult;
          }
         
         else if (wonCountPlayer === 5){
             getResult = "You won the game!! Refresh the page to play one more time";
             disableButtons();
 
-            document.getElementById('result').innerHTML = getResult;
+            document.getElementById('result').innerText = getResult;
         }
 
         else{
                     if (resultGame[0] === "I"){
-                        document.getElementById('result').innerHTML = resultGame;
+                        document.getElementById('result').innerText = resultGame;
                         wonCountPc++;
                         wonCountPlayer++;
-                        document.getElementById('count').innerHTML = "Computer Score: " + wonCountPc + "<br>Your Score: " + wonCountPlayer;
+                        document.getElementById('count').innerText = "Computer Score: " + wonCountPc + "\nYour Score: " + wonCountPlayer + "\n";
                     }
                     
                     else if (resultGame[4] === "W"){
                         wonCountPlayer++;
-                        document.getElementById('result').innerHTML = resultGame;
-                        document.getElementById('count').innerHTML = "Computer Score: " + wonCountPc + "<br>Your Score: " + wonCountPlayer;
+                        document.getElementById('result').innerText = resultGame;
+                        document.getElementById('count').innerText = "Computer Score: " + wonCountPc + "\nYour Score: " + wonCountPlayer + "\n";
                     }
                     
 
                     else {
-                        document.getElementById('result').innerHTML = resultGame;
+                        document.getElementById('result').innerText = resultGame;
                         wonCountPc++;
-                        document.getElementById('count').innerHTML = "Computer Score: " + wonCountPc + "<br>Your Score: " + wonCountPlayer;
+                        document.getElementById('count').innerText = "Computer Score: " + wonCountPc + "\nYour Score: " + wonCountPlayer + "\n";
                     }
                     
                 }
