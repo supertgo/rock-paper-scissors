@@ -2,71 +2,68 @@
 let botoesEl = document.querySelectorAll('input');
 let wonCountPc = 0;
 let wonCountPlayer = 0;
-let choiceByPrompt = null;
-
-choiceByPrompt = prompt('Write paper, rock ou scissors');
-
-
-
 //Chamado quando o jogo termina
 function disableButtons() {
     botoesEl.forEach(elem => {
         elem.disabled = true
     })
 }
-
-
-function game (e)
-{
-    let getResult = '';
-    let resultGame = playRound(e.target.value);
-
-
-    if (wonCountPc === 5){
-        getResult = "You lost de game!! Refresh the page to play one more time";
-        disableButtons();
-        document.getElementById('result').innerText = getResult;
-     }
-    
-    else if (wonCountPlayer === 5){
-        getResult = "You won the game!! Refresh the page to play one more time";
-        disableButtons();
-
-        document.getElementById('result').innerText = getResult;
-    }
-
-    else{
-                if (resultGame[0] === "I"){
-                    document.getElementById('result').innerText = resultGame;
-                    wonCountPc++;
-                    wonCountPlayer++;
-                    document.getElementById('count').innerText = "Computer Score: " + wonCountPc + "\nYour Score: " + wonCountPlayer + "\n";
-                }
-                
-                else if (resultGame[4] === "W"){
-                    wonCountPlayer++;
-                    document.getElementById('result').innerText = resultGame;
-                    document.getElementById('count').innerText = "Computer Score: " + wonCountPc + "\nYour Score: " + wonCountPlayer + "\n";
-                }
-                
-
-                else {
-                    document.getElementById('result').innerText = resultGame;
-                    wonCountPc++;
-                    document.getElementById('count').innerText = "Computer Score: " + wonCountPc + "\nYour Score: " + wonCountPlayer + "\n";
-                }
-                
-            }
-     
-
-}
-
-
 botoesEl.forEach(botaoSelecionado =>{
-    botaoSelecionado.addEventListener('click', game);
+    botaoSelecionado.addEventListener('click', function(){
+       
+        let getResult = " ";
+        let resultGame = playRound(botaoSelecionado.value);
+        if (wonCountPc === 5){
+            getResult = "You lost de game!! Refresh the page to play one more time";
+            disableButtons();
+            document.getElementById('result').innerHTML = getResult;
+            document.getElementById('result').innerText = getResult;
+
+            setTimeout(location.reload(), 3000);
+         }
+
+        else if (wonCountPlayer === 5){ 
+            getResult = "You won the game!! Refresh the page to play one more time";
+            disableButtons();
+
+            document.getElementById('result').innerHTML = getResult;
+            document.getElementById('result').innerText = getResult;
+
+            setTimeout(location.reload(), 3000);
+        }
+
+        else{
+                    if (resultGame[0] === "I"){
+                        document.getElementById('result').innerHTML = resultGame;
+                        document.getElementById('result').innerText = resultGame;
+                        wonCountPc++;
+                        wonCountPlayer++;
+                        document.getElementById('count').innerHTML = "Computer Score: " + wonCountPc + "<br>Your Score: " + wonCountPlayer;
+                        document.getElementById('count').innerText = "Computer Score: " + wonCountPc + "\nYour Score: " + wonCountPlayer + "\n";
+                    }
+
+                    else if (resultGame[4] === "W"){
+                        wonCountPlayer++;
+                        document.getElementById('result').innerHTML = resultGame;
+                        document.getElementById('count').innerHTML = "Computer Score: " + wonCountPc + "<br>Your Score: " + wonCountPlayer;
+                        document.getElementById('result').innerText = resultGame;
+                        document.getElementById('count').innerText = "Computer Score: " + wonCountPc + "\nYour Score: " + wonCountPlayer + "\n";
+                    }
+
+
+                    else {
+                        document.getElementById('result').innerHTML = resultGame;
+                        document.getElementById('result').innerText = resultGame;
+                        wonCountPc++;
+                        document.getElementById('count').innerHTML = "Computer Score: " + wonCountPc + "<br>Your Score: " + wonCountPlayer;
+                        document.getElementById('count').innerText = "Computer Score: " + wonCountPc + "\nYour Score: " + wonCountPlayer + "\n";
+                    }
+
+                }
+         
+         
+    });
 })
-
-
 
 function computerPlay (){
     arrayGame = ["rock","paper", "scissors"];
@@ -74,10 +71,8 @@ function computerPlay (){
 }
 
 function playRound (escolhaDoPlayer) {
-
     
     escolhaDoPc = computerPlay();
-
    
     if (escolhaDoPlayer === escolhaDoPc)
         return "Its a tie";
@@ -85,7 +80,6 @@ function playRound (escolhaDoPlayer) {
     else if (escolhaDoPc === "rock" && escolhaDoPlayer === "scissors" ||
             escolhaDoPc === "paper" && escolhaDoPlayer === "rock" ||
             escolhaDoPc === "scissors" && escolhaDoPlayer === "paper") {
-
                 return "You Lost because " + escolhaDoPc + " beats " + escolhaDoPlayer + "!";
     }
     
