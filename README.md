@@ -1,3 +1,7 @@
-English: I did my second task on the odin project, the comum game "rock paper scissors", I learned how to style the elements in transition and how to select a button within a button div.
+### Rock Paper Scissors
 
-Português: Fiz a segunda tarefa do curso odin project, esta sobre o jogo "pedra papel tesoura". Eu aprendi como estilizar os elementos para colocá-los em transição e aparendi a simular um maquina de digitar.
+Live Demo 👉: https://supertgo.github.io/rock-paper-scissors/
+
+## Build With
+
+<p align="left"> <a href="https://www.w3schools.com/css/" target="_blank"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original-wordmark.svg" alt="css3" width="40" height="40"/> </a> <a href="https://www.w3.org/html/" target="_blank"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original-wordmark.svg" alt="html5" width="40" height="40"/> </a> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="javascript" width="40" height="40"/> </a> </p>
